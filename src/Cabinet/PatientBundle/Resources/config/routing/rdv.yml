@@ -1,0 +1,30 @@
+rdv:
+    pattern:  /
+    defaults: { _controller: "CabinetPatientBundle:Rdv:index" }
+
+rdv_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CabinetPatientBundle:Rdv:show" }
+
+rdv_new:
+    pattern:  /new
+    defaults: { _controller: "CabinetPatientBundle:Rdv:new" }
+
+rdv_create:
+    pattern:  /create
+    defaults: { _controller: "CabinetPatientBundle:Rdv:create" }
+    requirements: { _method: post }
+
+rdv_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CabinetPatientBundle:Rdv:edit" }
+
+rdv_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CabinetPatientBundle:Rdv:update" }
+    requirements: { _method: post|put }
+
+rdv_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CabinetPatientBundle:Rdv:delete" }
+    requirements: { _method: post|delete }

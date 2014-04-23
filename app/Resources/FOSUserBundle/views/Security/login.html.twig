@@ -1,0 +1,36 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+{% if error %}
+<div>{{ error|trans }}</div>
+{% endif %}
+
+
+<section class="container">
+    <div class="login">
+        <h1>Connectez-vous à Cabinet.com</h1>
+        <form method="post" action="{{ path("fos_user_security_check") }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            <p><input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="Identifiant" /></p>
+            <p><input type="password" id="password" name="_password" required="required" placeholder="Mot de passe" /></p>
+            <p class="remember_me">
+                <label>
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                    Se souvenir de moi
+                </label>
+            </p>
+            <p class="submit">    <input class="btn btn-default" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+            </p>
+        </form>
+    </div>
+
+    <div class="login-help">
+        <p>Mot de passe oublié? <a href="">Cliquez ici pour le réinitialiser</a>.</p>
+        <p>Vous n'êtes pas encore membre? <a id="enregistrer" class="register" href="#" url="{{ path('medecin_registration') }}">S'inscrire</a>.</p>
+    </div>
+</section>
+
+<div id="register"></div>
+{% endblock fos_user_content %}

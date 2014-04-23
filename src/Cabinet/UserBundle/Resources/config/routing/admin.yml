@@ -1,0 +1,30 @@
+admin:
+    pattern:  /
+    defaults: { _controller: "CabinetUserBundle:Admin:index" }
+
+admin_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CabinetUserBundle:Admin:show" }
+
+admin_new:
+    pattern:  /new
+    defaults: { _controller: "CabinetUserBundle:Admin:new" }
+
+admin_create:
+    pattern:  /create
+    defaults: { _controller: "CabinetUserBundle:Admin:create" }
+    requirements: { _method: post }
+
+admin_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CabinetUserBundle:Admin:edit" }
+
+admin_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CabinetUserBundle:Admin:update" }
+    requirements: { _method: post|put }
+
+admin_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CabinetUserBundle:Admin:delete" }
+    requirements: { _method: post|delete }

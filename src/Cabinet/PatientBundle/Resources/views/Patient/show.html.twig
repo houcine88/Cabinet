@@ -1,0 +1,75 @@
+{% extends '::layoutMedecin.html.twig' %}
+
+{% block body -%}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: left;"><h4>Fiche patient</h4></td>
+                <td style="text-align: right;"><h5>Numero dossier: {{ entity.fiche.id }}/{{ entity.fiche.annee|date('Y') }}</h5></td>
+            </tr>
+        </table>
+    </div>
+    <div class="panel-body">
+        <table class="record_properties">
+            <tbody>
+
+                <tr>
+                    <th>Nom :</th>
+                    <td>{{ entity.nom }}</td>
+                </tr>
+                <tr>
+                    <th>Prenom :</th>
+                    <td>{{ entity.prenom }}</td>
+                </tr>
+                <tr>
+                    <th>Date de naissance :</th>
+                    <td>{{ entity.dateNaissance|date('d-m-Y') }}</td>
+                </tr>
+                <tr>
+                    <th>Adresse :</th>
+                    <td>{{ entity.adresse }}</td>
+                </tr>
+                <tr>
+                    <th>Telephonne :</th>
+                    <td>{{ entity.tel }}</td>
+                </tr>
+                <tr>
+                    <th>Cin :</th>
+                    <td>{{ entity.cin }}</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+{#
+
+{{ path('operation_getOperations_reroute',{'idFiche':entity.fiche.id}) }}
+, 'page':app.request.get('page')
+, 'page':app.request.get('page')
+#}
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div id="operationsPatient" url="{{ path('operation_getOperations',{'idFiche':entity.fiche.id, 'page':1}) }}">
+            {{ render(controller('CabinetPatientBundle:Operation:getOperations',{'idFiche':entity.fiche.id, 'page':app.request.get('page')}))}}
+            </div>
+        </div>
+    </div>
+
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('patient') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('patient_edit', { 'id': entity.id }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Medecin{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css" />
+        <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('css/jquery-ui.css') }}" type="text/css" />
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    </head>
+    <body>
+        <div class="panel panel-primary" style="margin-left: 2%;margin-right: 2%;">
+            <div class="panel-heading">
+                <div class="navbar">
+                    <div class="navbar-inner">{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <a class="brand" href="{{ path('cabinet_patient_homepage') }}">Cabinet Dr.{{app.user.username}}
+                        </a>
+                        <ul id="main-menu" class="nav" style="float: right;text-decoration: underline;">
+                            <li><a class="accueil" href="{{ path('cabinet_patient_homepage') }}">ACCUEIL</a></li>
+                            <li><a class="patient" href="{{ path('patient') }}">Patients</a></li>
+                            <li><a href="#">Gestion</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li class="dropdown"> 
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-cog"></i>
+                                    <b class="caret"></b></a>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">Réglages</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('fos_user_security_logout') }}">Deconnexion</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>{% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" style="min-height:500px;height: 100%;overflow: auto;">
+                {% block body %}{% endblock %}
+                </div>
+                <div class="panel-footer">
+                    Panel footer
+                </div>
+            </div>
+
+            {% block javascripts %}
+            <script src="{{ asset('js/jquery-1.9.1.js')}}"></script>
+            <script src="{{ asset('js/jquery-ui.js') }}"></script>
+            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+            
+            <script type="text/javascript">
+            $(document).ready(function(){
+            var i = $(location).attr('href');
+            $('#main-menu li a').each(function(){
+                if('http://localhost'+$(this).attr('href')==i)
+                $(this).parent().addClass('active');
+            });
+            });
+            $(document).ready(function(){
+            $( ".hasDatepicker" ).datepicker({
+            dateFormat: 'dd-mm-yy',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '1970:2000',
+            });
+            });
+                </script>
+            {% endblock %}
+            </body>
+        </html>

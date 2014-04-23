@@ -1,0 +1,38 @@
+medecin:
+    pattern:  /
+    defaults: { _controller: "CabinetUserBundle:Medecin:index" }
+
+medecin_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CabinetUserBundle:Medecin:show" }
+
+medecin_new:
+    pattern:  /new
+    defaults: { _controller: "CabinetUserBundle:Medecin:new" }
+
+medecin_create:
+    pattern:  /create
+    defaults: { _controller: "CabinetUserBundle:Medecin:create" }
+    requirements: { _method: post }
+
+medecin_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CabinetUserBundle:Medecin:edit" }
+
+medecin_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CabinetUserBundle:Medecin:update" }
+    requirements: { _method: post|put }
+
+medecin_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CabinetUserBundle:Medecin:delete" }
+    requirements: { _method: post|delete }
+
+medecin_activate:
+    pattern:  /{id}/activate
+    defaults: { _controller: "CabinetUserBundle:Medecin:activate" }
+
+medecin_desactivate:
+    pattern:  /{id}/desactivate
+    defaults: { _controller: "CabinetUserBundle:Medecin:desactivate" }

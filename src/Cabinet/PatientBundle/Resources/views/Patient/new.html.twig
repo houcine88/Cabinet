@@ -1,0 +1,27 @@
+{#{% extends '::base.html.twig' %}
+
+{% block body -%}#}
+        
+<h1>Patient creation</h1>
+
+    {{ form(form,{'attr': {'class': 'form-horizontal'}}) }}
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('patient') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+    <script type="text/javascript">
+        
+            $( "form input.datepicker" ).datepicker({
+                dateFormat: 'dd-mm-yy',
+                changeMonth: true,
+                changeYear: true,
+                yearRange: '1970:2000',
+            });
+      
+    </script>
+
+{#{% endblock %}#}

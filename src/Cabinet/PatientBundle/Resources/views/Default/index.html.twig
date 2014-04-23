@@ -1,0 +1,6 @@
+{% extends '::layoutMedecin.html.twig' %}
+
+{% block body -%}
+mar7bé
+{{ render(controller('CabinetPatientBundle:Rdv:index', { 'max': 3 })) }}
+{% endblock %}

@@ -1,0 +1,19 @@
+cabinet_user_homepage:
+    pattern:  /
+    defaults: { _controller: CabinetUserBundle:Default:index }
+
+CabinetUserBundle_admin:
+    resource: "@CabinetUserBundle/Resources/config/routing/admin.yml"
+    prefix:   /admin
+
+CabinetUserBundle_medecin:
+    resource: "@CabinetUserBundle/Resources/config/routing/medecin.yml"
+    prefix:   /medecin
+
+admin_registration:
+    pattern:  /register/admin
+    defaults: { _controller: CabinetUserBundle:RegistrationAdmin:register }
+
+medecin_registration:
+    pattern:  /register/medecin
+    defaults: { _controller: CabinetUserBundle:RegistrationMedecin:register }

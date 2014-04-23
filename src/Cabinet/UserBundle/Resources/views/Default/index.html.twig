@@ -1,0 +1,63 @@
+{# src/Sdz/UserBundle/Resources/views/layout.html.twig #}
+{# On étend notre layout #}
+{% extends "::base.html.twig" %}
+
+{# Dans notre layout, il faut définir le block body #}
+{% block body %}
+
+
+<div>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                
+                {% if is_granted('ROLE_ADMIN') %}
+    admin dasheboard
+                    {{ render(controller('CabinetUserBundle:Default:admin'))}}
+                {% else %}
+                    {{ render(controller('CabinetUserBundle:Default:medecin'))}}
+                {% endif %}
+            {% else %}
+                {{ render(controller('CabinetUserBundle:Security:Login'))}}
+
+
+                {#<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>#}
+            {% endif %}
+</div>
+
+
+{# On affiche les messages flash que définissent les contrôleurs
+du bundle #}
+{% for key, message in app.session.flashbag.all() %}
+<div class="alert alert-{{ key }}">
+{{ message|trans({}, 'FOSUserBundle') }}
+</div>
+{% endfor %}
+{# On définit ce block, dans lequel vont venir s'insérer les
+autres vues du bundle #}
+
+<script type="text/javascript" src="{{ asset('js/jquery-1.9.1.js')}}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery-ui.js') }}"></script>
+<script type="text/javascript">
+    $('#enregistrer').click(function() {
+        var url = $(this).attr('url');
+        $("#register").load(url, function() {
+            $(this).dialog({
+                height: '500',
+                width: 'auto',
+                modal: true,
+                draggable: true,
+                title: 'Enregistrement',
+                position: 'center',
+                overlay: {
+                    backgroundColor: '#000',
+                    opacity: 0.5
+                },
+                close: function() {
+                    $(this).dialog('close');
+                    //self.location.reload();
+                }
+
+            });
+        });
+    });
+</script>
+{% endblock %}

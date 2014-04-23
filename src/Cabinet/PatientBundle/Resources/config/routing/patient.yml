@@ -1,0 +1,35 @@
+patient:
+    pattern:  /
+    defaults: { _controller: "CabinetPatientBundle:Patient:index" }
+
+patient_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CabinetPatientBundle:Patient:show" }
+
+patient_new:
+    pattern:  /new
+    defaults: { _controller: "CabinetPatientBundle:Patient:new" }
+
+patient_create:
+    pattern:  /create
+    defaults: { _controller: "CabinetPatientBundle:Patient:create" }
+    requirements: { _method: post }
+
+patient_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CabinetPatientBundle:Patient:edit" }
+
+patient_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CabinetPatientBundle:Patient:update" }
+    requirements: { _method: post|put }
+
+patient_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CabinetPatientBundle:Patient:delete" }
+#    requirements: { _method: post|delete }
+
+patient_autocomplete:
+    pattern: /autocompletePatient
+    defaults: { _controller: "CabinetPatientBundle:Patient:autocompletePatient" }
+    requirements: { _method: post }

@@ -1,0 +1,30 @@
+fiche:
+    pattern:  /
+    defaults: { _controller: "CabinetPatientBundle:Fiche:index" }
+
+fiche_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CabinetPatientBundle:Fiche:show" }
+
+fiche_new:
+    pattern:  /new
+    defaults: { _controller: "CabinetPatientBundle:Fiche:new" }
+
+fiche_create:
+    pattern:  /create
+    defaults: { _controller: "CabinetPatientBundle:Fiche:create" }
+    requirements: { _method: post }
+
+fiche_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CabinetPatientBundle:Fiche:edit" }
+
+fiche_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CabinetPatientBundle:Fiche:update" }
+    requirements: { _method: post|put }
+
+fiche_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CabinetPatientBundle:Fiche:delete" }
+    requirements: { _method: post|delete }

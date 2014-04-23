@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Rdv creation</h1>
+
+    {{ form(form) }}
+<div id="patient" url="{{ path('patient_autocomplete') }}">
+     
+</div>
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('rdv') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

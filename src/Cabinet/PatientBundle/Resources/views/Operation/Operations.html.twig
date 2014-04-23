@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<h1>Liste des opérations</h1>
+<div class="count">
+    {{ pagination.getTotalItemCount }}
+</div>
+<table class="table">
+    <thead>
+        <tr>
+{# sorting of properties based on query components #}
+            {#<th>{{ knp_pagination_sortable(pagination, 'Id', 'Operation.id') }}</th>#}
+            <th {% if pagination.isSorted('op.Date') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Date', 'op.date') }}</th>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Doit</th>
+            <th>Recu</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entity in pagination %}
+        <tr {% if loop.index is odd %}class="color"{% endif %}>
+            <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.type }}</td>
+            <td>{{ entity.doit }}</td>
+            <td>{{ entity.recu }}</td>
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
+
+  {% endblock %}

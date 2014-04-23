@@ -1,0 +1,7 @@
+parameters:
+#    cabinet_patient.example.class: Cabinet\PatientBundle\Example
+
+services:
+#    cabinet_patient.example:
+#        class: %cabinet_patient.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

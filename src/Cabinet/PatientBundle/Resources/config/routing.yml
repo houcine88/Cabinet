@@ -1,0 +1,15 @@
+cabinet_patient_homepage:
+    pattern:  /
+    defaults: { _controller: CabinetPatientBundle:Default:index }
+CabinetPatientBundle_patient:
+    resource: "@CabinetPatientBundle/Resources/config/routing/patient.yml"
+    prefix:   /patient
+CabinetPatientBundle_fiche:
+    resource: "@CabinetPatientBundle/Resources/config/routing/fiche.yml"
+    prefix:   /fiche
+CabinetPatientBundle_operation:
+    resource: "@CabinetPatientBundle/Resources/config/routing/operation.yml"
+    prefix:   /operation
+CabinetPatientBundle_rdv:
+    resource: "@CabinetPatientBundle/Resources/config/routing/rdv.yml"
+    prefix:   /rdv

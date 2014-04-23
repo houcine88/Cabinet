@@ -1,0 +1,39 @@
+operation:
+    pattern:  /
+    defaults: { _controller: "CabinetPatientBundle:Operation:index" }
+
+operation_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CabinetPatientBundle:Operation:show" }
+
+operation_new:
+    pattern:  /{idFiche}/new
+    defaults: { _controller: "CabinetPatientBundle:Operation:new" }
+
+operation_create:
+    pattern:  /{idFiche}/create
+    defaults: { _controller: "CabinetPatientBundle:Operation:create" }
+    requirements: { _method: post }
+
+operation_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CabinetPatientBundle:Operation:edit" }
+    
+operation_getOperations:
+    pattern:  /{idFiche}/{page}/getOperations
+    defaults: { _controller: "CabinetPatientBundle:Operation:getOperations", page:1}
+    requirements: { _method: get }
+
+operation_getOperations_reroute:
+    pattern:  /{idFiche}/redirect
+    defaults: { _controller: "CabinetPatientBundle:Operation:redirect"}
+
+operation_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CabinetPatientBundle:Operation:update" }
+    requirements: { _method: post }
+
+operation_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CabinetPatientBundle:Operation:delete" }
+    #requirements: { _method: post|delete }
